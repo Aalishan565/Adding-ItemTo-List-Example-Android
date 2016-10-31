@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AddingItemToListPoc</string>
-    <string name="hint_enter_to_listView">Enter any item in Listview</string>
+    <string name="hint_enter_to_listView">Enter any item in List</string>
+    <string name="hint_search_to_listView">Search any item in List</string>
     <string name="btn_lbl_add">Add</string>
     <string name="btn_lbl_delete">Delete</string>
 </resources>

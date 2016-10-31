@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mArrayList = new ArrayList();
-        mEtSearch= (EditText) findViewById(R.id.et_search);
+        mEtSearch = (EditText) findViewById(R.id.et_search);
         mEtText = (EditText) findViewById(R.id.et_item_to_add);
         mBtnAdd = (Button) findViewById(R.id.btn_add);
         mBtnDelete = (Button) findViewById(R.id.btn_delete);
@@ -64,10 +65,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_add:
-                textToAdd = mEtText.getText().toString();
+               /* textToAdd = mEtText.getText().toString();
                 mEtText.setText("");
                 mArrayList.add(textToAdd);
-                mAdapter.notifyDataSetChanged();
+                mAdapter.notifyDataSetChanged();*/
+                if (mEtText.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "add somting to list ", Toast.LENGTH_LONG).show();
+                } else {
+                    mArrayList.add(mEtText.getText().toString());
+                    mAdapter.notifyDataSetChanged();
+                    mEtText.setText("");
+                }
                 break;
             case R.id.btn_delete:
                 SparseBooleanArray checkedItemPositions = mLvItems.getCheckedItemPositions();
